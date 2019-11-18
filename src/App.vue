@@ -1,18 +1,17 @@
 <template lang="pug">
     #app
-        h1 Hello world!
+        .header
+            Nav
+        router-view
+        .footer
 </template>
 
 <script>
-
+import Nav from '@/components/core/Nav'
 export default {
     name: 'app',
-    components: {
-
+    components:{
+        Nav,
     }
 }
 </script>
-
-<style lang="scss">
-
-</style>
