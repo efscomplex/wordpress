@@ -4,6 +4,22 @@ label.search
       i 🔎
    input(:value="value" @input="onInput" placeholder="search..." autofocus)
 </template>
+<script>
+import {ref} from '@vue/composition-api'
+
+export default {
+   setup(){
+      const value = ref('')
+
+      function onInput(){
+         console.log('new value');
+      }
+      return {
+         value, onInput
+      }
+   }
+}
+</script>
 <style lang="stylus" scoped>
 .search
    cursor:pointer

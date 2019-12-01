@@ -1,17 +1,25 @@
 <template lang='pug'>
 header
-   Logo(:src="src")
-   Title(:title="title")
-   Search
-      mdiMagnify(fill-color="#222")
+   Logo(v-if="!!logo" :src="logo")
+   Title(v-if="!!title" :title="title")
+   Search(v-if="search")
 </template>
 
 <script>
 
 export default {
-   props:['title','src'],
+   props:{
+      title: String,
+      logo: String,
+      search: {
+         type: Boolean,
+         default: false
+      }
+   },
    components:{
-      Logo: () => import('@/components/core/Logo'),
+      Logo: () => import('@/components/base/Logo'),
+      Title: () => import('@/components/base/Title'),
+      Search: () => import('@/components/base/Search'),
    },
 }
 </script>
