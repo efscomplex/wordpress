@@ -1,17 +1,18 @@
 <template lang="pug">
-    #app
-        .header
-            Nav
-        router-view
-        .footer
+#app
+   h1 Vue-template with Stylus! :) 
 </template>
 
 <script>
-import Nav from '@/components/core/Nav'
+import Header from '@/components/core/Header'
+import Navbar from '@/components/core/Navbar'
+import Logo from '@/components/core/Logo'
 export default {
     name: 'app',
     components:{
-        Nav,
+       Header,
+       Navbar,
+       Logo
     }
 }
 </script>
