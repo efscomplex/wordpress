@@ -5,5 +5,6 @@ import pages from '@/store/pages'
 Vue.use(VueRouter)
 
 export default new VueRouter({
-    routes:pages,
+    routes: pages,
+    mode: 'history'
 })

@@ -5,16 +5,13 @@ import pages from './pages'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    state:{
-        pages
-    },
-    getters:{
-
-    },
-    mutations:{
-
-    },
-    actions:{
-
-    }
+   state: {
+      pages
+   },
+   getters: {
+      getBanner: (state) => 
+         name => state.pages.find(
+            page => (page.name === name)
+         ).banner,
+   },
 })

@@ -1,4 +1,4 @@
-<template functional lang='pug'>
+<template lang='pug'>
 h1.title {{props.title}}
 </template>
 

@@ -1,8 +1,8 @@
 <template lang='pug'>
 nav
-   div(@click="onClick").hover
+   span(@click="onClick").action
       slot(name="icon" )
-         div.burger 
+         span.burger 
    transition(:name="effect")
       template(v-if="show")
          slot
@@ -23,10 +23,21 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.hover
-   cursor:pointer
+@import '../../styles/*.styl'
+
 nav
    display:inline-block
+.hide
+   --lapse .3s
+   transition width var(--lapse) ease-in-out, opacity var(--lapse) ease-in-out
+   @media screen and (min-width m)
+         width 0
+         opacity 0
+         overflow hidden
+.action
+   cursor pointer
+   @extend .hide
+
 .burger
    w = 3px
    size = 5*w
@@ -36,8 +47,7 @@ nav
    width: size
    height: size
    cursor:pointer
-   background: linear-gradient(var(--color) w,transparent w),
-      linear-gradient(transparent w*2,var(--color) w*2,var(--color) w*3,transparent w*3),
-      linear-gradient(transparent w*4,var(--color) w*4,var(--color) w*5,transparent w*5)
+   background: linear-gradient(var(--color) w,transparent w),linear-gradient(transparent w*2,var(--color) w*2,var(--color) w*3,transparent w*3),linear-gradient(transparent w*4,var(--color) w*4,var(--color) w*5,transparent w*5)
+ 
 </style>
     

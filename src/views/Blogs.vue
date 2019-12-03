@@ -2,8 +2,12 @@
 .features
    Banner(:src="banner")
       .message
-         h1.title Crea hoy tu fabulosa página web
-         h3.subtitle Crea fácilmente una página web atractiva para tu empresa, negocio o blog con WordPress.com.
+         h1.title Powerful website building features to help you publish anything, anywhere.
+         ul
+            li Choose a plan that works for you
+            li Customize as much or as little as you want
+            li Get help when you need it
+            li Tell your story
 </template> 
 
 <script>
