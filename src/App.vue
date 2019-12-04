@@ -14,6 +14,7 @@
 import Header from '@/components/core/Header'
 import Navbar from '@/components/core/Navbar'
 import {computed, provide} from '@vue/composition-api'
+import '@mdi/font/css/materialdesignicons.css'
 
 export default {
    name: 'app',
@@ -30,16 +31,16 @@ export default {
 <style lang="stylus">
 @import 'styles/*.styl'
 
+#app
+   --logo-w 4rem
 body
-   --header-h 70px
    width 100vw
-  
-.header
-   height: var(--header-h)
-   position absolute
-   background-color rgba(0,0,0, .4)
-   color white
-.banner
-   padding-top var(--header-h)
-   color white
+#app
+   postion relative
+   & > .header
+      position absolute
+      background-color rgba(0,0,0, .4)
+      color white
+      .navbar
+         font-size .9em
 </style>

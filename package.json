@@ -7,6 +7,8 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@mdi/font": "^4.6.95",
+    "@mdi/svg": "^4.6.95",
     "@vue/composition-api": "^0.3.2",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
@@ -14,6 +16,7 @@
     "vuex": "^3.1.2"
   },
   "devDependencies": {
+    "@mdi/js": "^4.6.95",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
     "pug": "^2.0.4",

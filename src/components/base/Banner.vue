@@ -1,6 +1,7 @@
 <template lang='pug'>
-.banner(:style="imgSrc")
-   slot
+div.banner(:style="imgSrc")
+   .container
+      slot
 </template>
      
 <script>
@@ -22,11 +23,19 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+.container
+   height 100%
+   display flex
+   justify-content center
+   align-items center
 .banner
    width 100%
-   height 768px
-   position realative
+   height var(--banner-h, 768px)
    transition background-image .6s ease-in-out
    background-position center
    background-size cover
+</style>
+<style lang="stylus">
+#app
+   --banner-h 768px
 </style>

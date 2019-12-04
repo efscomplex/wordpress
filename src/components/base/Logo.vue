@@ -1,8 +1,11 @@
 <template lang='pug'>
 div.logo
-   img(:src="src" v-bind="$props" style="max-width: 100%").img
+   img.img( :src="src"
+            v-bind="$attrs" 
+            style="max-width: 100%" 
+            :class="$attrs.width ? '': 'logo-w'")
    slot
-      .title(v-if="!!title") {{title}}
+      .title(v-if="!!title" v-html="title")
 </template>
 
 <script>
@@ -14,16 +17,12 @@ export default {
       src:{
          default: () => require('@/assets/logo.png')
       },
-      width:{
-         default: '80px'
-      },
-      height:{
-         default: 'auto'
-      },
    },
 }
 </script>
 <style lang="stylus" scoped>
+.logo-w
+   width var(--logo-w, initial)
 .logo
    display flex
    align-items center
@@ -32,5 +31,4 @@ export default {
    margin-right .8rem
 .title
    display inline-block
-   color inherit
 </style>

@@ -715,6 +715,21 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@mdi/font@^4.6.95":
+  version "4.6.95"
+  resolved "https://registry.yarnpkg.com/@mdi/font/-/font-4.6.95.tgz#f97ecbdfd59c183d19f3a24a6fe4f84f579cf287"
+  integrity sha512-m5AjVnVS9Xi4xbQQt2rh+ClVcWT9oFqSmo8mZs7teOGbAmUrZ9km1RuNRNKIr7LV3vy/zCeEfMc154Z9l+ab0g==
+
+"@mdi/js@^4.6.95":
+  version "4.6.95"
+  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-4.6.95.tgz#277596179e08036e65a1cb621636e21b813e2b70"
+  integrity sha512-ga5GlIY/2hFQAuT5JKY21Rj+W9CnnbOp+ge6BEr/7omOiGVvsmUtetYOBOhyf8xgJ/BBtgvYHPzjZXORjh9cTg==
+
+"@mdi/svg@^4.6.95":
+  version "4.6.95"
+  resolved "https://registry.yarnpkg.com/@mdi/svg/-/svg-4.6.95.tgz#019672627717db33a3857bf1d90e57063895d3c5"
+  integrity sha512-sY2oKLvVEEsXTmJR2YyckdvoK4390tiZJ/q/bPAN1luq8jgcoukazzTHSPL7NMVcwBVGcOIAb3m1dG8BbjZxcA==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

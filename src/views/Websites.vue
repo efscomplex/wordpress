@@ -1,13 +1,13 @@
 <template lang='pug'>
 .features
    Banner(:src="banner")
-      .message
-         h1.title Powerful website building features to help you publish anything, anywhere.
-         ul
-            li Choose a plan that works for you
-            li Customize as much or as little as you want
-            li Get help when you need it
-            li Tell your story
+      Card(title="Powerful website building features to help you publish anything, anywhere.")
+         template(#main)
+            ul
+               li Choose a plan that works for you
+               li Customize as much or as little as you want
+               li Get help when you need it
+               li Tell your story
 </template> 
 
 <script>
@@ -22,6 +22,9 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+.card
+   background-color rgba(0,0,0, .3)
+   color white
 .message
    .title
       font-size 1.5em

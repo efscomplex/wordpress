@@ -1,11 +1,11 @@
 <template lang='pug'>
 header.header
-   router-link(to="/")
-      Logo(v-if="!!logo" :src="logo" width="50px" :title="title")
+   router-link(to="/").company
+      Logo(v-if="!!logo" :src="logo" title="<h2>WordPress.com</h2>")
    .routes
-      Nav
-         Navbar(:routes="navRoutes")
-   .btn-group
+      Nav(@showbar="toggleShowbar")
+         Navbar(:routes="navRoutes" :vertical="verticalBar")
+   .actions
       button.btn.primary Get Started
       button.btn.primary(style="margin:0 1rem") Language: En
 </template>
@@ -24,25 +24,32 @@ export default {
       Navbar: () => import('@/components/core/Navbar'),
    },
    setup(props, {root}){
-      console.log(root.$store.state.pages.slice(1));
-      
+      const verticalBar = ref(false)
       const navRoutes = ref(
          root.$store.state.pages.slice(1)
       )
-      return {navRoutes}
+      function toggleShowbar(isShow){
+         verticalBar.value=isShow
+      }
+      return {navRoutes, verticalBar, toggleShowbar}
    }
 }
 </script>
 <style lang="stylus" scoped>
-.btn-group
+.actions
    margin 1rem
+   grid-area actions
+.company 
+   grid-area company
+.actions
+   grid-area actions
 header
    padding:.4rem 0
    width 100%
-   display:flex
+   display:grid
+   grid-template-areas 'company routes actions'
    flex-wrap wrap
-   justify-content space-between
    align-items center
-   & > *
-      margin:0 1rem
+   justify-content space-between
+
 </style>

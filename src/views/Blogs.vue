@@ -1,13 +1,9 @@
 <template lang='pug'>
 .features
    Banner(:src="banner")
-      .message
-         h1.title Powerful website building features to help you publish anything, anywhere.
-         ul
-            li Choose a plan that works for you
-            li Customize as much or as little as you want
-            li Get help when you need it
-            li Tell your story
+      Card(v-bind="card").dark.op-9
+         template(#actions)
+            button.btn.primary Start Your website
 </template> 
 
 <script>

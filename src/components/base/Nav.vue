@@ -1,32 +1,47 @@
 <template lang='pug'>
 nav
-   span(@click="onClick").action
+   .action(@click="onClickShow" v-if="showNav" :class="{'hide': !showNav}")
       slot(name="icon" )
          span.burger 
-   transition(:name="effect")
-      template(v-if="show")
+   .navbar(v-if="showMenu || !showNav")
+      transition(:name="effect")
          slot
 </template>
 <script>
+import {computed, ref, watch} from '@vue/composition-api'
+
 export default {
-   props:{
-      effect:{
-         default:'slideToRight'
+   props: {
+      effect: {
+         default: 'fade'
       },
    },
-   data: () => ({show:true}),
-   methods:{
-      onClick(){
-         this.show=!this.show
+   setup(props, {emit}) {
+      const showNav = ref(true)
+      window.addEventListener('resize',
+         () => (showNav.value = window.innerWidth < 1024)
+      )
+      watch(
+         () => emit('showbar', showNav.value)
+      )
+      const showMenu = ref(!showNav)
+      function onClickShow(){
+         showMenu.value=!showMenu.value
       }
-   }
+
+      return {
+         showNav,
+         showMenu,
+         onClickShow,
+      }
+   },
 }
 </script>
 <style lang="stylus" scoped>
-@import '../../styles/*.styl'
 
 nav
-   display:inline-block
+   display:inline-grid
+   grid-template-areas 'action' 'navbar'
 .hide
    --lapse .3s
    transition width var(--lapse) ease-in-out, opacity var(--lapse) ease-in-out
@@ -35,15 +50,23 @@ nav
          opacity 0
          overflow hidden
 .action
+   --lapse .4s
+   display inline-block
+   grid-area action
+   transition width var(--lapse) ease-in-out, opacity var(--lapse) ease-in-out
    cursor pointer
-   @extend .hide
-
+.navbar
+   grid-area navbar
+.hide
+   width 0
+   opacity 0
+   display none
 .burger
    w = 3px
    size = 5*w
    --color:white
    display: inline-block
-   margin:0 1rem
+   margin-right:1rem
    width: size
    height: size
    cursor:pointer

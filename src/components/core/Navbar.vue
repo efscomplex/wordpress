@@ -1,5 +1,5 @@
 <template lang='pug'>
-ul.navbar(:class="!!vertical? 'vertical': 'horizontal'")
+ul.navbar(:class="vertical ? 'vertical' : 'horizontal'") 
    template(v-for="route in routes")
       router-link(
          :to="route.path" 
@@ -7,13 +7,14 @@ ul.navbar(:class="!!vertical? 'vertical': 'horizontal'")
 </template>
 
 <script>
+import {computed} from '@vue/composition-api'
+
 export default {
    props:{
       routes:{
          default:()=>[]
       },
       vertical:{
-         type: [Boolean],
          default: false
       }
    },
@@ -26,7 +27,7 @@ export default {
       padding: 1rem 0
 .horizontal
    a
-      padding:0 1rem
+      padding:0 .8rem
 
 ul.navbar
    display:inline-flex
@@ -35,7 +36,6 @@ ul.navbar
       text-decoration:none
       display:block
       color:inherit
-      font-weight:bold
       letter-spacing:0.5px
       &:hover
          opacity:.7
